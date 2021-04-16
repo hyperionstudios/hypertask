@@ -1,0 +1,79 @@
+@startuml HyperTask_Laravel_Class
+
+package laravel{
+    class Model{}
+    class View{}
+    class Controller{}
+    class Request{}
+    class Resource{}
+}
+
+package hypertask.models{
+    class User extends Model{
+        + tasks() : [Task]
+        + projects() : [Project]
+        + taskGroups() : [TaskGroup]
+    }
+    class Project extends Model{
+        + taskGroups() : [TaskGroup]
+        + tasks() : [Task]
+
+        + user() : User
+    }
+    class TaskGroup extends Model{
+        + tasks() : [Task]
+
+        + project() : Project
+        + user() : User
+    }
+    class Task extends Model{
+        + user() : User
+        + project() : Project
+        + taskGroup() : TaskGroup
+    }
+}
+
+package hyperdesk.repositries{
+    interface ModelRepository{
+        + save([dynamic]) : Model
+        + update([dynamic] ,  Model) : Model
+    }
+    class UserRespositry implements ModelRepository{}
+    class ProjectRepository implements ModelRepository{}
+    class TaskGroupRepository implements ModelRepository{}
+    class TaskRepository implements ModelRepository{}
+}
+
+package hypertask.controllers{
+    interface Managable{
+        + index() : View 
+        + show(Model) : View
+        + store(Request , ModelRepository) : View
+        + create() : View
+        + edit(Model) : View
+        + update(Model,Request , ModelRepository) : View
+        + delete(Model) : View
+    }
+    class UserController extends Controller implements Managable{}
+    class ProjectController extends Controller implements Managable{}
+    class TaskGroupController extends Controller implements Managable{}
+    class TaskController extends Controller implements Managable{}
+}
+
+package hyperdesk.controllers.api{
+    interface Apipable{
+        + index() : [Resource] 
+        + show(Model) : Resource
+        + store(Request , ModelRepository) : Resource
+        + update(Model,Request , ModelRepository) : Resource
+        + delete(Model) : Resource
+    }
+    class UserController extends Controller implements Apipable{}
+    class ProjectController extends Controller implements Apipable{}
+    class TaskGroupController extends Controller implements Apipable{}
+    class TaskController extends Controller implements Apipable{}
+}
+
+
+
+@enduml
