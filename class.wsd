@@ -1,5 +1,8 @@
 @startuml HyperTask_Laravel_Class
 
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
 package laravel{
     class Model{}
     class View{}
@@ -7,6 +10,12 @@ package laravel{
     class Request{}
     class Resource{}
 }
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+skinparam nodesep 10
+skinparam ranksep 20
 
 package hypertask.models{
     class User extends Model{
@@ -33,6 +42,12 @@ package hypertask.models{
     }
 }
 
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+skinparam nodesep 10
+skinparam ranksep 20
+
 package hyperdesk.repositries{
     interface ModelRepository{
         + save([dynamic]) : Model
@@ -43,6 +58,12 @@ package hyperdesk.repositries{
     class TaskGroupRepository implements ModelRepository{}
     class TaskRepository implements ModelRepository{}
 }
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+skinparam nodesep 10
+skinparam ranksep 20
 
 package hypertask.controllers{
     interface Managable{
@@ -60,6 +81,12 @@ package hypertask.controllers{
     class TaskController extends Controller implements Managable{}
 }
 
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+skinparam nodesep 10
+skinparam ranksep 20
+
 package hyperdesk.controllers.api{
     interface Apipable{
         + index() : [Resource] 
@@ -74,6 +101,10 @@ package hyperdesk.controllers.api{
     class TaskController extends Controller implements Apipable{}
 }
 
-
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+skinparam nodesep 10
+skinparam ranksep 20
 
 @enduml
