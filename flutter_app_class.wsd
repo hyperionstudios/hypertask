@@ -1,0 +1,9 @@
+@startuml Flutter_App_Class
+
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
+
+
+
+@enduml

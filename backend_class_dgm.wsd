@@ -14,8 +14,7 @@ package laravel{
 newpage
 !define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
 !includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
-skinparam nodesep 10
-skinparam ranksep 20
+
 
 package hypertask.models{
     class User extends Model{
@@ -45,8 +44,7 @@ package hypertask.models{
 newpage
 !define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
 !includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
-skinparam nodesep 10
-skinparam ranksep 20
+
 
 package hyperdesk.repositries{
     interface ModelRepository{
@@ -62,8 +60,7 @@ package hyperdesk.repositries{
 newpage
 !define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
 !includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
-skinparam nodesep 10
-skinparam ranksep 20
+
 
 package hypertask.controllers{
     interface Managable{
@@ -84,8 +81,7 @@ package hypertask.controllers{
 newpage
 !define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
 !includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
-skinparam nodesep 10
-skinparam ranksep 20
+
 
 package hyperdesk.controllers.api{
     interface Apipable{
@@ -100,11 +96,5 @@ package hyperdesk.controllers.api{
     class TaskGroupController extends Controller implements Apipable{}
     class TaskController extends Controller implements Apipable{}
 }
-
-newpage
-!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
-!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
-skinparam nodesep 10
-skinparam ranksep 20
 
 @enduml
