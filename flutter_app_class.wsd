@@ -3,7 +3,141 @@
 !define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
 !includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
 
+namespace Contracts{
+    interface Mapable{
+        + toMap() : Map<String,dynamic>
+    }
 
+    interface DataSource{
+        + index() : [Mapable]
+        + save(Mapable) : Mapable
+        + update(Mapable) : Mapable
+        + delete(Mapable) : Boolean
+        + findWhere(String column , dynamic data) : [Mapable]
+    }
 
+    abstract class BaseController extends Get.GetXController{
+        + DataSource dataSource
+        + RxList<Mapable> models
+        + Rx<Mapable> model
+        + add(Mapable)
+        + delete(Mapable)
+        + update(Mapable)
+        + search( dynamic ) : [Mapable]
+        + findOne( dynamic ) : Mapable
+    }
+    ' GetView<BaseController>
+    abstract class BaseView extends GetView{
+        + buildScreen() : Widget
+    }
+}
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
+namespace Models{
+    class User implements Contracts.Mapable{
+        + int id
+        + String name
+        + String email
+        User.fromJson(Map<String,dynamic>)
+    }
+    class Project implements Contracts.Mapable{
+        + int id
+        + int user_id
+        + String title
+        + String description
+        + String status
+        Project.fromJson(Map<String,dynamic>)
+    }
+    class TaskGroup implements Contracts.Mapable{
+        + int id
+        + String title
+        + int groupable_id
+        + String groupable_type
+        TaskGroup.fromJson(Map<String,dynamic>)
+    }
+    class Task implements Contracts.Mapable{
+        + int id
+        + String body
+        + String status
+        + int taskable_id
+        + String taskable_type
+        Task.fromJson(Map<String,dynamic>)
+    }
+}
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
+namespace ApiServices{
+    class UserApiService implements Contracts.DataSource{}
+    class ProjectApiService implements Contracts.DataSource{}
+    class TaskGroupApiService implements Contracts.DataSource{}
+    class TaskApiService implements Contracts.DataSource{}
+}
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
+namespace LocalServices{
+    class UserLocalService implements Contracts.DataSource{}
+    class ProjectLocalService implements Contracts.DataSource{}
+    class TaskGroupLocalService implements Contracts.DataSource{}
+    class TaskLocalService implements Contracts.DataSource{}
+}
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
+namespace Controllers{
+    class UserController extends Contracts.BaseController{
+
+    }
+    class ProjectController extends Contracts.BaseController{
+
+    }
+    class TaskGroupController extends Contracts.BaseController{
+
+    }
+    class TaskController extends Contracts.BaseController{
+
+    }
+}
+
+newpage
+!define DARKBLUE # change color here E.g. DARKBLUE, LIGHTBLUE ... GREEN ... RED ...
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml?fbclid=IwAR2eYqwxf9YIa7oSDWJCumJRDLLnBYEORYICuyi295mYOxN-H-SCRLoa30c
+
+package Views{
+    namespace users{
+        class UserListView extends Contracts.BaseView{}
+        class UserView extends Contracts.BaseView{}
+        class NewUserView extends Contracts.BaseView{}
+        class UpdateUserView extends Contracts.BaseView{}
+    }
+    namespace projects{
+        class ProjectListView extends Contracts.BaseView{}
+        class ProjectView extends Contracts.BaseView{}
+        class NewProjectView extends Contracts.BaseView{}
+        class UpdateProjectView extends Contracts.BaseView{}
+    }
+    namespace task_groups{
+        class TaskGroupListView extends Contracts.BaseView{}
+        class TaskGroupView extends Contracts.BaseView{}
+        class NewTaskGroupView extends Contracts.BaseView{}
+        class UpdateTaskGroupView extends Contracts.BaseView{}
+    }
+    namespace tasks{
+        class TaskListView extends Contracts.BaseView{}
+        class TaskView extends Contracts.BaseView{}
+        class NewTaskView extends Contracts.BaseView{}
+        class UpdateTaskView extends Contracts.BaseView{}
+    }
+}
 
 @enduml
